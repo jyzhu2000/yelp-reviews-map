@@ -1,0 +1,134 @@
+:root {
+    --icon-color: red; 
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 400px; /* The height is 400 pixels */
+    width: 100%; /* The width is the width of the web page */
+    background-color: lightgray;
+}
+
+.info {
+    max-width: 500px;
+}
+
+/*
+ * Business styles in unhighlighted state.
+ */
+.business {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 2px solid white;
+    border-radius: 50%;
+    color: #263238;
+    display: flex;
+    font-size: 10px;
+    gap: 7px;
+    height: 18px;
+    justify-content: center;
+    padding: 2px;
+    position: relative;
+    transition: all 0.3s ease-out;
+    width: 18px;
+}
+  
+.business::before {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 7px solid white;
+    content: "";
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: 95%;
+    transform: translate(-50%, 0);
+    transition: all 0.3s ease-out;
+    width: 0;
+}
+
+.business::after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 7px solid red;
+    content: "";
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: 85%;
+    transform: translate(-50%, 0);
+    transition: all 0.3s ease-out;
+    width: 0;
+    z-index: 1;
+}
+
+.business .icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+}
+  
+.business .icon svg {
+    height: 15px;
+    width: auto;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Poppins, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.section-rating * {
+    display: inline-block;
+    vertical-align: middle;
+    height: 20px;
+}
+
+.section-rating {
+    display: table; 
+    table-layout: auto;
+}
+
+.star {
+    border-color: rgb(235, 235, 235);
+    margin-right: 2px;
+}
+
+.rating-date {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px; 
+    font-weight: 400;
+    color: rgba(110, 112, 114, 1);
+    line-height: 20px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+/*
+ * Business styles in highlighted state.
+ */
+.business.highlight {
+    border: 2px solid red;
+}
+
+.business.highlight::before {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 7px solid red;
+}
+
+.business.highlight::after {
+  border-top: 7px solid #FFFFFF;
+}
+
+/*
+ * Icon colors
+ */
+.business.highlight:has(.fa-yelp) .icon {
+  color: var(--icon-color);
+}
+.business:not(.highlight):has(.fa-yelp) {
+    background-color: var(--icon-color);
+}
